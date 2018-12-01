@@ -23,4 +23,7 @@ module.exports = {
         semi: ['error', 'never'],
         'linebreak-style': ['error', 'unix'],
     },
+    globals: {
+        module: true,
+    },
 }

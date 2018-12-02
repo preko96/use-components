@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Base from './Base'
 
-// borderTopLeftRadius: 0,
-// borderTopRightRadius: 0,
-// borderBottomRightRadius: 0,
-// borderBottomLeftRadius: 0,
+const Group = styled.div(standard, children)
+export default Group
+
+Group.propTypes = { gapless: PropTypes.bool }
 
 function children(props) {
 	return {
@@ -26,5 +27,3 @@ function children(props) {
 function standard(props) {
 	return { marginLeft: props.gapless ? 0 : -1 }
 }
-
-export default styled.div(standard, children)

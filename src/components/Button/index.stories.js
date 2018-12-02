@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { select, boolean } from '@storybook/addon-knobs'
+import Test from './'
 import Base from './Base'
 import Group from './Group'
 
@@ -69,10 +70,10 @@ stories.add('Shapes', () => {
 stories.add('Button.Group', () => {
 	const gapless = boolean('Gapless', false)
 	return (
-		<Group gapless={gapless}>
-			<Button>Button</Button>
-			<Button>Button</Button>
-			<Button>Button</Button>
-		</Group>
+		<Test.Group gapless={gapless}>
+			<Test>Button</Test>
+			<Test>Button</Test>
+			<Test>Button</Test>
+		</Test.Group>
 	)
 })

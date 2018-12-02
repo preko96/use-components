@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default styled(Base)``
+const Button = styled(Base)``
+export default Button
 
 function Base({ children, ...props }) {
 	const circle = props.shape === 'circle'
@@ -14,7 +15,7 @@ function Base({ children, ...props }) {
 	)
 }
 
-Base.propTypes = {
+Button.propTypes = {
 	children: PropTypes.string.isRequired,
 	type: PropTypes.string,
 	size: PropTypes.string,
@@ -24,7 +25,7 @@ Base.propTypes = {
 	focused: PropTypes.bool,
 }
 
-Base.defaultProps = {
+Button.defaultProps = {
 	type: 'primary',
 	size: 'normal',
 }

@@ -19,12 +19,7 @@
     "eslintConfig": {
         "extends": "react-app"
     },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ],
+    "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
     "devDependencies": {
         "@storybook/addon-a11y": "^4.0.9",
         "@storybook/addon-actions": "^4.0.10",
@@ -45,16 +40,5 @@
         "lint-staged": "^8.1.0",
         "prettier-eslint": "^8.8.2",
         "prop-types": "^15.6.2"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,json,css,md}": [
-            "prettier --write",
-            "git add"
-        ]
     }
 }

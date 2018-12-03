@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { select, boolean } from '@storybook/addon-knobs'
-import Test from './'
 import Base from './Base'
 import Group from './Group'
 
@@ -9,7 +8,27 @@ const Button = Base
 
 const stories = storiesOf('Button', module)
 
-stories.add('Types', () => {
+stories.add('default', () => {
+	return <Button>Button</Button>
+})
+
+stories.add('hovered', () => {
+	return <Button hovered={true}>Button</Button>
+})
+
+stories.add('pressed', () => {
+	return <Button pressed={true}>Button</Button>
+})
+
+stories.add('selected', () => {
+	return <Button selected={true}>Button</Button>
+})
+
+stories.add('block', () => {
+	return <Button block={true}>Button</Button>
+})
+
+stories.add('types', () => {
 	const label = 'Types'
 	const types = {
 		Default: 'default',
@@ -22,25 +41,12 @@ stories.add('Types', () => {
 		Dark: 'dark',
 	}
 	const defaultValue = 'primary'
-	const selected = boolean('Focused', false)
-	const hovered = boolean('Hovered', false)
-	const pressed = boolean('Pressed', false)
-	const block = boolean('Block', false)
+
 	const type = select(label, types, defaultValue)
-	return (
-		<Button
-			type={type}
-			selected={selected}
-			hovered={hovered}
-			pressed={pressed}
-			block={block}
-		>
-			Button
-		</Button>
-	)
+	return <Button type={type}>Button</Button>
 })
 
-stories.add('Sizes', () => {
+stories.add('sizes', () => {
 	const label = 'Sizes'
 	const sizes = {
 		Tiny: 'tiny',
@@ -55,7 +61,7 @@ stories.add('Sizes', () => {
 	return <Button size={size}>Button</Button>
 })
 
-stories.add('Shapes', () => {
+stories.add('shapes', () => {
 	const label = 'Shapes'
 	const sizes = {
 		Normal: 'normal',
@@ -67,13 +73,58 @@ stories.add('Shapes', () => {
 	return <Button shape={shape}>{text}</Button>
 })
 
-stories.add('Button.Group', () => {
+stories.add('group', () => {
 	const gapless = boolean('Gapless', false)
 	return (
-		<Test.Group gapless={gapless}>
-			<Test>Button</Test>
-			<Test>Button</Test>
-			<Test>Button</Test>
-		</Test.Group>
+		<Group gapless={gapless}>
+			<Button>Button</Button>
+			<Button>Button</Button>
+			<Button>Button</Button>
+		</Group>
+	)
+})
+
+stories.add('lab', () => {
+	const hovered = boolean('Hovered', false)
+	const pressed = boolean('Pressed', false)
+	const selected = boolean('Selected', false)
+	const block = boolean('Block', false)
+	const types = {
+		Default: 'default',
+		Primary: 'primary',
+		Info: 'info',
+		Success: 'success',
+		Warning: 'warning',
+		Danger: 'danger',
+		Light: 'light',
+		Dark: 'dark',
+	}
+	const sizes = {
+		Tiny: 'tiny',
+		Small: 'small',
+		Normal: 'normal',
+		Medium: 'medium',
+		Large: 'large',
+		Extra: 'extra',
+	}
+	const shapes = {
+		Normal: 'normal',
+		Circle: 'circle',
+	}
+	const type = select('Type', types, 'default')
+	const size = select('Size', sizes, 'normal')
+	const shape = select('Shape', shapes, 'normal')
+	return (
+		<Button
+			hovered={hovered}
+			pressed={pressed}
+			selected={selected}
+			block={block}
+			type={type}
+			size={size}
+			shape={shape}
+		>
+			Button
+		</Button>
 	)
 })

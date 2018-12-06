@@ -7,11 +7,11 @@ import App from './App'
 import 'defaults.css'
 
 function EnhancedApp() {
-    return (
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    )
+	return (
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
+	)
 }
 
 render(<EnhancedApp />, document.getElementById('root'))
